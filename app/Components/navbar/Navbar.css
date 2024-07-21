@@ -1,0 +1,19 @@
+.navLinks ul{
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    color: white;
+    margin: 0 !important;
+}
+.navbar{
+    padding-block: 25px;
+}
+.logo{
+    font-style: italic;
+    font-weight: 800;
+    font-size: 22px;
+    text-transform: capitalize;
+} 
+.navLinks ul li a{
+    color: white;
+}
