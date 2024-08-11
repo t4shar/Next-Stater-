@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 function Links() {
     const pathName = usePathname();
+    const [openNav, setopenNav] = useState(false)
     const LinkArr = [
         {
             title: "Homepage",
@@ -22,17 +24,34 @@ function Links() {
             path: "/blog"
         }
     ];
-
+    const session = true;
+    const isLogin = true;
+    const handleToggle = () => {
+        setopenNav(openNav => !openNav);
+      }
     return (
-        <>
+        <div className="navigation">
+            <button className="navgationtoggle" onClick={handleToggle}>Menu</button>
+
+            <div className={`navigationResponsive ${openNav ? "visible" : ""}`}>
+                <button className="closeNav" onClick={handleToggle}>Close</button>
             <ul>
                 {LinkArr.map((link, index) => (
-                    <li key={index} className={pathName === link.path && active}>
-                        <Link href={link.path}>{link.title}</Link>
+                    <li key={index} >
+                        <Link className={pathName === link.path && 'active'}  href={link.path}>{link.title}</Link>
                     </li>
                 ))}
+                { session ? (
+                    <>
+                    {isLogin && <li><Link className={pathName === '/admin' && 'active'}  href="/admin">Admin</Link></li>}
+                    <button>Logout</button>
+                    </>
+                ):(
+                    <li> <Link className={pathName === '/login' && 'active'}  href="/login">Login</Link> </li>
+                )}
             </ul>
-        </>
+            </div>
+        </div>
     );
 }
 

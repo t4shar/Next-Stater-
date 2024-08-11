@@ -11,17 +11,8 @@ a{
   text-decoration: none;
   
 }
-.container{
-  padding-left: 15px;
-  padding-right: 15px;
-  max-width:1280px;
-  width: 100%;
-  margin: 0 auto;
-}
-.row{
-  display: flex;
 
-}
-.col-6{
-  width: 50%;
+
+.row{
+  width: 100%;
 }
